@@ -1,3 +1,11 @@
+/*
+ * Praktikum 1
+ *
+ * Alexander Manger 754969
+ * Maciej Krzyszton 756037
+ *
+*/
+
 #ifndef HOTELBOOKING_H
 #define HOTELBOOKING_H
 #include <string>

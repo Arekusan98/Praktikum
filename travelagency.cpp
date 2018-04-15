@@ -1,3 +1,11 @@
+/*
+ * Praktikum 1
+ *
+ * Alexander Manger 754969
+ * Maciej Krzyszton 756037
+ *
+*/
+
 #include "travelagency.h"
 #include <fstream>
 #include <iostream>
@@ -57,10 +65,12 @@ while(!bookingFile.eof()){
         rentalCarReservations.push_back(car);
     }
 }
+
 double sum;
 int flights = flightBookings.size();
 int hotels = hotelBookings.size();
 int cars = rentalCarReservations.size();
+
 for(int i = 0; i < flights; i++)
 {
     sum += flightBookings.at(i).getPrice();
