@@ -38,8 +38,8 @@ while(!bookingFile.eof()){
             inputs.push_back(text);
 
         }
-        FlightBooking flight;
-        flight.set(inputs);
+        FlightBooking *flight = new FlightBooking();
+        flight->set(inputs);
         flightBookings.push_back(flight);
     }
     if(!text.compare("R")){
@@ -49,8 +49,8 @@ while(!bookingFile.eof()){
             inputs.push_back(text);
 
         }
-        HotelBooking hotel;
-        hotel.set(inputs);
+        HotelBooking *hotel = new HotelBooking();
+        hotel->set(inputs);
         hotelBookings.push_back(hotel);
     }
     if(!text.compare("H")){
@@ -60,8 +60,8 @@ while(!bookingFile.eof()){
             inputs.push_back(text);
 
         }
-        RentalCarReservation car;
-        car.set(inputs);
+        RentalCarReservation *car = new RentalCarReservation();
+        car->set(inputs);
         rentalCarReservations.push_back(car);
     }
 }
@@ -73,19 +73,19 @@ int cars = rentalCarReservations.size();
 
 for(int i = 0; i < flights; i++)
 {
-    sum += flightBookings.at(i).getPrice();
+    sum += flightBookings.at(i)->getPrice();
 }
 cout << "Es wurden " << flights << " Fluege gebucht zu einem Gesamtpreis von " << sum << endl;
 sum = 0;
 for(int i = 0; i < hotels; i++)
 {
-    sum += hotelBookings.at(i).getPrice();
+    sum += hotelBookings.at(i)->getPrice();
 }
 cout << "Es wurden " << hotels << " Hotels gebucht zu einem Gesamtpreis von " << sum << endl;
 sum=0;
 for(int i = 0; i < cars; i++)
 {
-    sum += rentalCarReservations.at(i).getPrice();
+    sum += rentalCarReservations.at(i)->getPrice();
 }
 cout << "Es wurden " << cars << " Autos gebucht zu einem Gesamtpreis von " << sum << endl;
 

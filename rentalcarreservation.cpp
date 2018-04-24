@@ -23,6 +23,7 @@ void RentalCarReservation::set(vector<string> inputs){
     this->returnLocation = inputs.at(5);
     this->company = inputs.at(6);
 }
+
 double RentalCarReservation::getPrice(){
     return this->price;
 }

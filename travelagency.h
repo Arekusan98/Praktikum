@@ -21,9 +21,9 @@ public:
     TravelAgency();
     void readFile();
 private:
-    vector<RentalCarReservation>rentalCarReservations;
-    vector<HotelBooking>hotelBookings;
-    vector<FlightBooking>flightBookings;
+    vector<RentalCarReservation*>rentalCarReservations;
+    vector<HotelBooking*>hotelBookings;
+    vector<FlightBooking*>flightBookings;
 };
 
 #endif // TRAVELAGENCY_H
