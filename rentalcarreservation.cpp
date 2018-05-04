@@ -1,18 +1,17 @@
 /*
- * Praktikum 1
+ * Praktikum 2
  *
  * Alexander Manger 754969
  * Maciej Krzyszton 756037
  *
 */
-
 #include "rentalcarreservation.h"
 
 RentalCarReservation::RentalCarReservation()
 {
 
 }
-
+/*
 void RentalCarReservation::set(vector<string> inputs){
 
     this->id = stol(inputs.at(0));
@@ -26,4 +25,4 @@ void RentalCarReservation::set(vector<string> inputs){
 
 double RentalCarReservation::getPrice(){
     return this->price;
-}
+}*/

@@ -1,28 +1,24 @@
 /*
- * Praktikum 1
+ * Praktikum 2
  *
  * Alexander Manger 754969
  * Maciej Krzyszton 756037
  *
 */
-
 #ifndef HOTELBOOKING_H
 #define HOTELBOOKING_H
 #include <string>
 #include <vector>
+#include "booking.h"
 using namespace std;
 
-class HotelBooking
+class HotelBooking : Booking
 {
 public:
     HotelBooking();
-    void set(vector<string> inputs);
-    double getPrice();
+   // void set(vector<string> inputs);
+   // double getPrice();
 private:
-    long id;
-    double price;
-    string fromDate;
-    string toDate;
     string hotel;
     string town;
 };

@@ -8,10 +8,16 @@ SOURCES += \
     travelagency.cpp \
     rentalcarreservation.cpp \
     hotelbooking.cpp \
-    flightbooking.cpp
+    flightbooking.cpp \
+    booking.cpp \
+    travel.cpp \
+    customer.cpp
 
 HEADERS += \
     travelagency.h \
     rentalcarreservation.h \
     hotelbooking.h \
-    flightbooking.h
+    flightbooking.h \
+    booking.h \
+    travel.h \
+    customer.h

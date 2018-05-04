@@ -1,18 +1,17 @@
 /*
- * Praktikum 1
+ * Praktikum 2
  *
  * Alexander Manger 754969
  * Maciej Krzyszton 756037
  *
 */
-
 #include "hotelbooking.h"
 
 HotelBooking::HotelBooking()
 {
 
 }
-
+/*
 void HotelBooking::set(vector<string> inputs){
 
     this->id = stol(inputs.at(0));
@@ -25,4 +24,4 @@ void HotelBooking::set(vector<string> inputs){
 
 double HotelBooking::getPrice(){
     return this->price;
-}
+}*/

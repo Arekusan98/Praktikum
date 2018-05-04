@@ -1,5 +1,5 @@
 /*
- * Praktikum 1
+ * Praktikum 2
  *
  * Alexander Manger 754969
  * Maciej Krzyszton 756037
@@ -18,7 +18,7 @@ TravelAgency::TravelAgency()
 
 }
 void TravelAgency::readFile(){
-fstream bookingFile;
+/*fstream bookingFile;
 string text;
 cout << "Enter path to bookings.txt" <<endl;
 string path;
@@ -91,5 +91,15 @@ cout << "Es wurden " << cars << " Autos gebucht zu einem Gesamtpreis von " << su
 
 
 
-bookingFile.close();
+bookingFile.close();*/
 }
+Booking* TravelAgency::findBooking(long id){
+return NULL;
+}
+Customer* TravelAgency::findCustomer(long id){
+return NULL;
+}
+Travel* TravelAgency::findTravel(long id){
+return NULL;
+}
+
