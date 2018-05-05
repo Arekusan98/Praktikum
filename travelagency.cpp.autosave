@@ -62,6 +62,7 @@ while(!bookingFile.eof()){
     }
 
     if(!type.compare("R")){
+        
       }
 
     if(!type.compare("H")){

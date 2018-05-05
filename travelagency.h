@@ -22,6 +22,7 @@ public:
     Booking* findBooking(long id);
     Travel* findTravel(long id);
     Customer* findCustomer(long id);
+    void setupBookingTravelCustomer(long bookingId, double price, long travelId, string fromDate, string toDate, long customerId, string customerName);
 
 private:
     vector<Booking*>allBookings;
