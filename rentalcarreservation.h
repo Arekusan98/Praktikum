@@ -16,8 +16,7 @@ class RentalCarReservation : Booking
 {
 public:
     RentalCarReservation();
- //   void set(vector<string> inputs);
- //   double getPrice();
+    void set(long id, double price, string fromDate, string toDate, long travelId, string pickupLocation, string returnLocation, string company);
 private:
     string pickupLocation;
     string returnLocation;

@@ -11,6 +11,8 @@
 #include <iostream>
 #include <sstream>
 #include "flightbooking.h"
+#include "rentalcarreservation.h"
+#include "hotelbooking.h"
 #include <array>
 using namespace std;
 
@@ -62,9 +64,28 @@ while(!bookingFile.eof()){
     }
 
     if(!type.compare("R")){
+        getline(lineStream, text, '|');
+        string pickupLocation = text;
+        getline(lineStream, text, '|');
+        string returnLocation = text;
+        getline(lineStream, text, '|');
+        string company = text;
+
+
+        RentalCarReservation* rental = new RentalCarReservation();
+        rental->set(bookingId, price, fromDate, toDate, travelId, pickupLocation, returnLocation, company);
+        this->setupBookingTravelCustomer(bookingId, price, travelId, fromDate, toDate, customerId, customerName);
       }
 
     if(!type.compare("H")){
+        getline(lineStream, text, '|');
+        string hotel = text;
+        getline(lineStream, text, '|');
+        string town = text;
+
+        HotelBooking* hotelbooking = new HotelBooking();
+        hotelbooking->set(bookingId, price, fromDate, toDate, travelId, hotel, town);
+        this->setupBookingTravelCustomer(bookingId, price, travelId, fromDate, toDate, customerId, customerName);
       }
    }
 bookingFile.close();

@@ -16,8 +16,7 @@ class HotelBooking : Booking
 {
 public:
     HotelBooking();
-   // void set(vector<string> inputs);
-   // double getPrice();
+    void set(long id, double price, string fromDate, string toDate, long travelId, string hotel, string town);
 private:
     string hotel;
     string town;

@@ -23,7 +23,4 @@ void FlightBooking::set(long id, double price, string fromDate, string toDate, l
     this->toDest = toDest;
     this->airline = airline;
 }
-/*
-double FlightBooking::getPrice(){
-    return this->price;
-}*/
+

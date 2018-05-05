@@ -11,17 +11,15 @@ HotelBooking::HotelBooking()
 {
 
 }
-/*
-void HotelBooking::set(vector<string> inputs){
 
-    this->id = stol(inputs.at(0));
-    this->price = stol(inputs.at(1));
-    this->fromDate = inputs.at(2);
-    this->toDate = inputs.at(3);
-    this->hotel = inputs.at(4);
-    this->town = inputs.at(5);
+void HotelBooking::set(long id, double price, string fromDate, string toDate, long travelId, string hotel, string town){
+
+    this->id = id;
+    this->price = price;
+    this->fromDate = fromDate;
+    this->toDate = toDate;
+    this->travelId = travelId;
+    this->hotel = hotel;
+    this->town = town;
 }
 
-double HotelBooking::getPrice(){
-    return this->price;
-}*/
