@@ -23,6 +23,9 @@ TravelAgency::TravelAgency()
 void TravelAgency::readFile(){
 fstream bookingFile;
 bookingFile.open("C:/repos/Praktikum/bookings.txt");
+int amountFlight = 0;
+int amountRental = 0;
+int amountHotel = 0;
 while(!bookingFile.eof()){
 //declaring Variables
     vector<string>input;
@@ -60,7 +63,7 @@ while(!bookingFile.eof()){
         FlightBooking* flight = new FlightBooking();
         flight->set(bookingId, price, fromDate, toDate, travelId, fromDest, toDest, airline);
         this->setupBookingTravelCustomer(bookingId, price, travelId, fromDate, toDate, customerId, customerName);
-
+        amountFlight++;
     }
 
     if(!type.compare("R")){
@@ -75,6 +78,7 @@ while(!bookingFile.eof()){
         RentalCarReservation* rental = new RentalCarReservation();
         rental->set(bookingId, price, fromDate, toDate, travelId, pickupLocation, returnLocation, company);
         this->setupBookingTravelCustomer(bookingId, price, travelId, fromDate, toDate, customerId, customerName);
+        amountRental++;
       }
 
     if(!type.compare("H")){
@@ -86,9 +90,22 @@ while(!bookingFile.eof()){
         HotelBooking* hotelbooking = new HotelBooking();
         hotelbooking->set(bookingId, price, fromDate, toDate, travelId, hotel, town);
         this->setupBookingTravelCustomer(bookingId, price, travelId, fromDate, toDate, customerId, customerName);
+        amountHotel++;
       }
    }
 bookingFile.close();
+
+cout << "Anzahl Flugbuchungen: " << amountFlight << endl;
+cout << "Anzahl Autobuchungen: " << amountRental << endl;
+cout << "Anzahl Hotelbuchungen: " << amountHotel << endl;
+
+cout << "Anzahl Bookings: "<< this->allBookings.size() << endl;
+cout << "Anzahl Customers: "<< this->allCustomers.size() << endl;
+cout << "Anzahl Travels: "<< this->allTravels.size()<< endl;
+
+
+cout << "Anzahl gebuchter Reisen bei Kunde 1("<< this->findCustomer(1)->getName() <<"): "<<this->findCustomer(1)->getTravelList().size() << endl;
+cout << "Anzahl Buchungen zur Reise 1 (Bei Kunde "<< this->findCustomer(this->findTravel(1)->getCustomerId())->getName() <<"): "<< this->findTravel(1)->getTravelBookings().size() << endl;
 }
 
 Booking* TravelAgency::findBooking(long id){

@@ -23,3 +23,10 @@ void Travel::set(long id, long customerId){
 long Travel::getId(){
     return this->id;
 }
+
+vector<Booking*> Travel::getTravelBookings(){
+    return this->travelBookings;
+}
+long Travel::getCustomerId(){
+    return this->customerId;
+}

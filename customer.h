@@ -22,6 +22,8 @@ public:
     void addTravel(Travel* travel);
     void set(long id, string name);
     long getId();
+    vector<Travel*> getTravelList();
+    string getName();
 private:
     long id;
     string name;

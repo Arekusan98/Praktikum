@@ -16,6 +16,8 @@ public:
     void addBooking(Booking* booking);
     void set(long id, long customerId);
     long getId();
+    vector<Booking*> getTravelBookings();
+    long getCustomerId();
 private:
     long id;
     long customerId;

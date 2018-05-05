@@ -21,3 +21,9 @@ void Customer::set(long id, string name){
 long Customer::getId(){
     return this->id;
 }
+vector<Travel*> Customer::getTravelList(){
+    return this->travelList;
+}
+string Customer::getName(){
+    return this->name;
+}
