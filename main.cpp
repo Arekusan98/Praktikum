@@ -11,7 +11,7 @@ using namespace std;
 
 int main()
 {
-    TravelAgency travel;
-    travel.readFile();
+    TravelAgency travelagency;
+    travelagency.readFile();
     return 0;
 }

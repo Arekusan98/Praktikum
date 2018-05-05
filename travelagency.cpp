@@ -10,7 +10,8 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-
+#include "flightbooking.h"
+#include <array>
 using namespace std;
 
 TravelAgency::TravelAgency()
@@ -18,88 +19,123 @@ TravelAgency::TravelAgency()
 
 }
 void TravelAgency::readFile(){
-/*fstream bookingFile;
+fstream bookingFile;
 string text;
-cout << "Enter path to bookings.txt" <<endl;
-string path;
-cin >> path;
-bookingFile.open(path);
+bookingFile.open("C:/repos/Praktikum/bookings.txt");
 while(!bookingFile.eof()){
 
     getline(bookingFile, text);
-    stringstream ss;
-    ss << text;
-    getline(ss, text, '|');
+    stringstream lineStream;
+    lineStream << text;
+    getline(lineStream, text, '|');
+    string type = text;
+    vector<string>input;
+    for (int i = 0; i<7;i++){
+        getline(lineStream, text, '|');
+        input.push_back(text);
+       }
+    long bookingId = stol(input.at(0));
+    double price = stod(input.at(1));
+    string fromDate = input.at(2);
+    string toDate = input.at(3);
+    long travelId = stol(input.at(4));
+    long customerId = stol(input.at(5));
+    string customerName = input.at(6);
 
-        if(!text.compare("F")){
-        vector<string> inputs;
-        for (int i = 0; i<7; i++){
-            getline(ss, text, '|');
-            inputs.push_back(text);
+    if(!type.compare("F")){
+        getline(lineStream, text, '|');
+        string fromDest = text;
+        getline(lineStream, text, '|');
+        string toDest = text;
+        getline(lineStream, text, '|');
+        string airline = text;
 
+        Booking* booking = new Booking();
+        cout << "booking erstellt";
+
+        if(!this->findBooking(bookingId)){
+            booking->set(bookingId, price, travelId, fromDate, toDate);
+            cout<<"booking gefüllt";
+            this->allBookings.push_back(booking);
+        }else{
+            booking = this->findBooking(bookingId);
         }
-        FlightBooking *flight = new FlightBooking();
-        flight->set(inputs);
-        flightBookings.push_back(flight);
-    }
-    if(!text.compare("R")){
-        vector<string> inputs;
-        for (int i = 0; i<6; i++){
-            getline(ss, text, '|');
-            inputs.push_back(text);
 
+        cout << "booking geprüft";
+
+        FlightBooking* flight = new FlightBooking();
+        flight->set(bookingId, price, fromDate, toDate, travelId, fromDest, toDest, airline);
+
+        cout << "flight erstellt";
+
+        Travel* travel = new Travel();
+        if(!this->findTravel(travelId)){
+            travel->set(travelId, customerId);
+            this->allTravels.push_back(travel);
+        }else{
+            travel = this->findTravel(travelId);
         }
-        HotelBooking *hotel = new HotelBooking();
-        hotel->set(inputs);
-        hotelBookings.push_back(hotel);
-    }
-    if(!text.compare("H")){
-        vector<string> inputs;
-        for (int i = 0; i<7; i++){
-            getline(ss, text, '|');
-            inputs.push_back(text);
+        cout << "travel geprüft";
+        travel->addBooking(booking);
 
+        Customer* customer = new Customer();
+
+        if(!this->findCustomer(customerId)){
+            customer->set(customerId, customerName);
+            this->allCustomers.push_back(customer);
+        }else{
+            customer = this->findCustomer(customerId);
         }
-        RentalCarReservation *car = new RentalCarReservation();
-        car->set(inputs);
-        rentalCarReservations.push_back(car);
+
+        customer->addTravel(travel);
+
+        cout << "booking und flight und customer und travel erstellt";
+
+    }
+
+    if(!type.compare("R")){
+        vector<string>input;
+        cout <<endl<< "R ";
+        for (int i = 0; i<10;i++){
+            getline(lineStream, text, '|');
+            input.push_back(text);
+            cout << text;
+        }
+    }
+    if(!type.compare("H")){
+        vector<string> input;
+        cout <<endl<< "H ";
+        for (int i = 0; i<9;i++){
+            getline(lineStream, text, '|');
+            input.push_back(text);
+            cout << text;
+        }
     }
 }
-
-double sum;
-int flights = flightBookings.size();
-int hotels = hotelBookings.size();
-int cars = rentalCarReservations.size();
-
-for(int i = 0; i < flights; i++)
-{
-    sum += flightBookings.at(i)->getPrice();
-}
-cout << "Es wurden " << flights << " Fluege gebucht zu einem Gesamtpreis von " << sum << endl;
-sum = 0;
-for(int i = 0; i < hotels; i++)
-{
-    sum += hotelBookings.at(i)->getPrice();
-}
-cout << "Es wurden " << hotels << " Hotels gebucht zu einem Gesamtpreis von " << sum << endl;
-sum=0;
-for(int i = 0; i < cars; i++)
-{
-    sum += rentalCarReservations.at(i)->getPrice();
-}
-cout << "Es wurden " << cars << " Autos gebucht zu einem Gesamtpreis von " << sum << endl;
-
-
-
-bookingFile.close();*/
+bookingFile.close();
 }
 Booking* TravelAgency::findBooking(long id){
-return NULL;
+    for(int i = 0; i < allBookings.size(); i++){
+        if(allBookings.at(i)->getId() == id){
+            return allBookings.at(i);
+        }
+    }
+    return NULL;
 }
 Customer* TravelAgency::findCustomer(long id){
-return NULL;
+    for(int i = 0; i < allCustomers.size(); i++){
+        if(allCustomers.at(i)->getId() == id){
+            return allCustomers.at(i);
+        }
+    }
+    return NULL;
 }
 Travel* TravelAgency::findTravel(long id){
-return NULL;
+    for(int i = 0; i < allCustomers.size(); i++){
+        if(allCustomers.at(i)->getId() == id){
+            return allTravels.at(i);
+        }
+    }
+    return NULL;
 }
 

@@ -14,6 +14,8 @@ class Travel
 public:
     Travel();
     void addBooking(Booking* booking);
+    void set(long id, long customerId);
+    long getId();
 private:
     long id;
     long customerId;

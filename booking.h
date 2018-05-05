@@ -8,11 +8,14 @@
 #ifndef BOOKING_H
 #define BOOKING_H
 #include <string>
+#include <vector>
 using namespace std;
 class Booking
 {
 public:
     Booking();
+    void set(long id, double price, long travelId, string fromDate, string toDate);
+    long getId();
 protected:
     long id;
     double price;

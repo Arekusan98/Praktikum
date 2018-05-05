@@ -20,6 +20,8 @@ class Customer
 public:
     Customer();
     void addTravel(Travel* travel);
+    void set(long id, string name);
+    long getId();
 private:
     long id;
     string name;

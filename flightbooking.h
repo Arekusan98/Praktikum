@@ -16,7 +16,7 @@ class FlightBooking : Booking
 {
 public:
     FlightBooking();
-    //void set(vector<string> inputs);
+    void set(long id, double price, string fromDate, string toDate, long travelId, string fromDest, string toDest, string airline);
     //double getPrice();
 private:
     string fromDest;

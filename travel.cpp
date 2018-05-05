@@ -12,5 +12,14 @@ Travel::Travel()
 
 }
 void Travel::addBooking(Booking *booking){
+this->travelBookings.push_back(booking);
+}
 
+void Travel::set(long id, long customerId){
+    this->customerId=customerId;
+    this->id=id;
+}
+
+long Travel::getId(){
+    return this->id;
 }
