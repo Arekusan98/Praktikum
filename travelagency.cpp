@@ -105,7 +105,7 @@ cout << "Anzahl Travels: "<< this->allTravels.size()<< endl;
 
 
 cout << "Anzahl gebuchter Reisen bei Kunde 1("<< this->findCustomer(1)->getName() <<"): "<<this->findCustomer(1)->getTravelList().size() << endl;
-cout << "Anzahl Buchungen zur Reise 1 (Bei Kunde "<< this->findCustomer(this->findTravel(1)->getCustomerId())->getName() <<"): "<< this->findTravel(1)->getTravelBookings().size() << endl;
+cout << "Anzahl Buchungen zur Reise 17 (Bei Kunde "<< this->findCustomer(this->findTravel(17)->getCustomerId())->getName() <<"): "<< this->findTravel(17)->getTravelBookings().size() << endl;
 }
 
 Booking* TravelAgency::findBooking(long id){
@@ -125,8 +125,8 @@ Customer* TravelAgency::findCustomer(long id){
     return NULL;
 }
 Travel* TravelAgency::findTravel(long id){
-    for(int i = 0; i < allCustomers.size(); i++){
-        if(allCustomers.at(i)->getId() == id){
+    for(int i = 0; i < allTravels.size(); i++){
+        if(allTravels.at(i)->getId() == id){
             return allTravels.at(i);
         }
     }
